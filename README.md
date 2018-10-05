@@ -30,3 +30,11 @@ Get-Process |
     select -First 5 name, pm | 
     Out-PieChart -PieChartTitle "Top 5 Windows processes running" -saveImage 'C:\tmp\Win_Process.png'
 ```
+
+## Pie Chart examples
+
+### Standard Pie Chart
+![](images/Win_Process.png)
+
+### 3D Pie Chart
+![](images/Win_Process-3D.png)
