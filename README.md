@@ -23,3 +23,10 @@ Get-Process |
      select -First 5 name, pm | 
      Out-PieChart -PieChartTitle "Top 5 Windows processes running" -DisplayToScreen
 ```
+
+### Save pie chart
+```powershell
+Get-Process | 
+    select -First 5 name, pm | 
+    Out-PieChart -PieChartTitle "Top 5 Windows processes running" -saveImage 'C:\tmp\Win_Process.png'
+```
