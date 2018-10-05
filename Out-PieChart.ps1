@@ -26,8 +26,7 @@ Function Out-PieChart {
         [switch] $DisplayToScreen,
 
         [Parameter()]
-        [ValidateScript( {Test-Path -Path $_})]
-        [string] $saveImage = 'c:\tmp\testpie.png'
+        [string] $saveImage
     )
     begin {
         Add-Type -AssemblyName System.Windows.Forms.DataVisualization
@@ -104,13 +103,16 @@ Function Out-PieChart {
         $Chart.Series["Data"].Points.DataBindXY($xColumn, $yColumn)
 
         # Save file
-        if ($psboundparameters.ContainsKey('SaveImage')) {
-            if (-not (Test-Path (Split-Path $SaveImage -Parent))) {
-                $SaveImage = $pscmdlet.GetUnresolvedProviderPathFromPSPath($SaveImage)
-                $Chart.SaveImage($saveImage, "png")
-            }
-            else {
-                throw "Invalid path"
+        if ($psboundparameters.ContainsKey('saveImage')) {
+            try{
+                if (Test-Path (Split-Path $saveImage -Parent)) {
+                    $SaveImage = $pscmdlet.GetUnresolvedProviderPathFromPSPath($saveImage)
+                    $Chart.SaveImage($saveImage, "png")
+                } else {
+                    throw 'Invalid path, the parent directory must exist'
+                }
+            } catch {
+                throw
             }
         }
 
