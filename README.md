@@ -1,5 +1,8 @@
 # PSCharts
 
+## What is Out-PieChart?
+Out-PieChart is a function to take data from the pipeline and create a pie chart. The function makes use of the .net assembly 'System.Windows.Forms.DataVisualization'. 
+
 ## Examples
 ### 3D pie chart
 ```powershell
