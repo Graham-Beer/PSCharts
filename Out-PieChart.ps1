@@ -46,7 +46,7 @@ Function Out-PieChart {
         $Chart.Titles[0].Alignment = "TopCenter"
 
         # Create Chart Area
-        $ChartArea = [System.Windows.Forms.DataVisualization.Charting.ChartArea]
+        $ChartArea = [System.Windows.Forms.DataVisualization.Charting.ChartArea]::new()
         $ChartArea.Area3DStyle.Enable3D = $Pie3D.ToBool()
         $ChartArea.Area3DStyle.Inclination = 50
         $Chart.ChartAreas.Add($ChartArea)
