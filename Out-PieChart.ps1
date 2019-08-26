@@ -84,7 +84,7 @@ Function Out-PieChart {
 
         if (-not $LabelProperty) {
             if ($inputObject.PSObject.Properties.Count -eq 2) {
-                $LabelProperty = $inputObject.Properties.Name -ne $valueProperty
+                $LabelProperty = $inputObject.PSObject.Properties.Name -ne $valueProperty
             }
             elseif ($inputObject.PSObject.Properties.Item('Name')) {
                 $LabelProperty = 'Name'
