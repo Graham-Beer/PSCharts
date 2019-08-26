@@ -14,7 +14,7 @@ Function Out-PieChart {
         [int] $ChartHeight = 400,
 
         [Parameter()]
-        [string[]] $NameProperty,
+        [string[]] $LabelProperty,
 
         [Parameter()]
         [string] $ValueProperty,
